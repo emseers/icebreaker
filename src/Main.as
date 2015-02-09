@@ -24,7 +24,7 @@ package
 		
 		override public function init():void 
 		{
-			trace("Starting game, IceBreaker Clone by Boarnoah(youtube.com/boarnoah)");
+			trace("Starting game, IceBreaker Clone by the Emseers (youtube.com/emseers)");
 		}
 	}
 }
