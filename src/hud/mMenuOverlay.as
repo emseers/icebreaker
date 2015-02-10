@@ -5,10 +5,10 @@ package hud
 	 * @author Boarnoah
 	 */
 	import net.flashpunk.Entity;
+	import net.flashpunk.graphics.Image;
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
 	import net.flashpunk.FP;
-	import net.flashpunk.graphics.Image;
 	import worlds.gameWorld;
 
 	public class mMenuOverlay extends Entity
@@ -34,6 +34,7 @@ package hud
 		public function mMenuOverlay() 
 		{
 			trace("Added playbutton");
+			init();
 		}
 		
 		override public function update():void{
