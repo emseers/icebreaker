@@ -7,7 +7,8 @@ package
 	
 	import net.flashpunk.Engine;
 	import net.flashpunk.FP;
-	import worlds.gameWorld;
+	//import worlds.gameWorld;
+	import worlds.mainMenuWorld;
 	
 	public class Main extends Engine 
 	{
@@ -18,7 +19,7 @@ package
 		{
 			super(WIDTH, HEIGHT, 60, false);
 			//TODO: Go to menu first
-			FP.world = new gameWorld;
+			FP.world = new mainMenuWorld;//new gameWorld;
 			//FP.screen.scale = 2;
 		}
 		

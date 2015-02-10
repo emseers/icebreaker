@@ -4,19 +4,21 @@ package worlds
 	 * ...
 	 * @author Boarnoah
 	 */
+	import hud.mMenuOverlay;
 	import net.flashpunk.World;
 	
 	public class mainMenuWorld extends World 
 	{
-		//[Embed(source="../res/shitStartButton.png")]
+		
 		public function mainMenuWorld() 
 		{
 			trace("Starting main menu...");
 			init();
 		}
 		
-		public function init():void{
-			
+		public function init():void {
+			add(new background());
+			add(new hud.mMenuOverlay());
 		}
 	}
 

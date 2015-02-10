@@ -1,6 +1,7 @@
 package worlds 
 {
 	//import flash.display.BitmapData;
+	import hud.restartMenuOverlay;
 	import net.flashpunk.World;
 	import net.flashpunk.graphics.Image;
 	/**
@@ -17,7 +18,7 @@ package worlds
 		
 		public function init(_screenshot:Image):void {
 			add(new worldScreenShot(_screenshot));
-			add(new restartButton());
+			add(new hud.restartMenuOverlay());
 		}
 	}
 

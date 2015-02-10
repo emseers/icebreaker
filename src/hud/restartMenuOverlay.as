@@ -1,4 +1,4 @@
-package 
+package hud 
 {
 	/**
 	 * ...
@@ -11,13 +11,13 @@ package
 	import net.flashpunk.FP;
 	import worlds.gameWorld;
 	
-	public class restartButton extends Entity
+	public class restartMenuOverlay extends Entity
 	{
-		[Embed(source="res/shitRestartButton.png")] private const SPR_RESTART_BTN:Class;
-		private var spr_restart_btn_width:uint = 256;
-		private var spr_restart_btn_height:uint = 128;
+		[Embed(source="../res/shitRestartButton.png")] private const SPR_RESTART_MENU_OVERLAY:Class;
+		private var SPR_RESTART_MENU_OVERLAY_width:uint = 256;
+		private var SPR_RESTART_MENU_OVERLAY_height:uint = 128;
 		
-		public function restartButton() 
+		public function restartMenuOverlay() 
 		{
 			init();
 		}
@@ -37,9 +37,9 @@ package
 		}
 		
 		public function init():void {
-			graphic = new Image(SPR_RESTART_BTN);
-			x = 400 - (spr_restart_btn_width/2);
-			y = 300 - (spr_restart_btn_height / 2);
+			graphic = new Image(SPR_RESTART_MENU_OVERLAY);
+			x = 400 - (SPR_RESTART_MENU_OVERLAY_width/2);
+			y = 300 - (SPR_RESTART_MENU_OVERLAY_height / 2);
 			Input.define("interact", Key.SPACE);
 			setHitboxTo(graphic);
 		}
