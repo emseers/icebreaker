@@ -26,8 +26,6 @@ package hud
 			if (collidePoint(x, y, world.mouseX, world.mouseY)){
                 if (Input.mouseReleased)
 					restartGame();
-			}else if (Input.pressed("interact")){
-				restartGame();
 			}
 		}
 		

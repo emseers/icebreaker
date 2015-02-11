@@ -11,6 +11,9 @@ package
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
 	import net.flashpunk.FP;
+	
+	//TODO debug comment on release
+	import net.flashpunk.utils.Draw;
 
 	//import block;
 	public class player extends Entity
@@ -28,17 +31,22 @@ package
 		private var spr_arm_height:uint = 32;
 		private var spr_arm_width:uint = 32;
 		
-		public var playerSpriteMap:Spritemap = new Spritemap(SPR_SHEET_PLAYER, spr_player_width, spr_player_height);
-		public var armSpriteMap:Spritemap = new Spritemap(SPR_SHEET_ARM, spr_arm_width, spr_arm_height);
-		public var playerChar:Graphiclist = new Graphiclist();
+		private var playerSpriteMap:Spritemap = new Spritemap(SPR_SHEET_PLAYER, spr_player_width, spr_player_height);
+		private var armSpriteMap:Spritemap = new Spritemap(SPR_SHEET_ARM, spr_arm_width, spr_arm_height);
+		private var playerChar:Graphiclist = new Graphiclist();
 		
-		public var currentArmAnimation:String = "hit_0";
+		private var currentArmAnimation:String = "hit_0";
 		//} endregion: Gfx/Input Variables
 		
-		public var playerSpeed:uint = 2;
-		public var punchingDisabled:Boolean = false;
-		public var armReach:int = spr_arm_width + spr_player_width;
-		public var timer:Number = 0;
+		private var armReach:int = spr_arm_width + spr_player_width;
+
+		// Debug variables, TODO comment out on release
+		private var debugVisible:Boolean = false;
+		private var x1:int = 0;
+		private var x2:int = 0;
+		private var w1:int = 0;
+		private var w2:int = 0;
+		//private var debugRect;
 		
 		public function player() 
 		{	
@@ -58,14 +66,6 @@ package
 		}
 		
 		override public function update():void {
-			/*
-			timer += FP.elapsed;
-			if (timer >= 0.25) {
-				trace("Disabled timer");
-				punchingDisabled = false;	
-				timer -= 0.25;
-			}
-			*/
 			var collisionObject:block = collide("block", x, y) as block;
 			if (collisionObject != null ) {
 				collisionObject.collidable = false;
@@ -88,6 +88,8 @@ package
 						collisionObject.destroy();
 						//blockControl.destroy();
 					}//TODO else for boss (rubick?)
+				}else if(Input.pressed(Key.I)){
+					testArmLenght();
 				}
 		}
 		
@@ -127,6 +129,26 @@ package
 			playerChar.add(armSpriteMap);
 			addGraphic(playerChar);
 			playerSpriteMap.play("run_1");
+		}
+		
+		//TODO comment out debug for releases
+		public function testArmLenght():void{
+			if(!debugVisible)
+				debugVisible = true;
+			else
+				debugVisible = false;
+				
+			x1 = x + (armReach * 2);
+			w1 = armReach;
+			x2 = x1 + w1;
+		}
+		
+		override public function render():void {
+			super.render();
+			if(debugVisible){
+				Draw.rect(x1, y  + (armReach * 2), w1, 64, 0x00ff00 , 0.5, false);
+				Draw.rect(x2, y  + (armReach * 2), w1, 64, 0xff0000 , 0.5, false);
+			}
 		}
 	}
 }
