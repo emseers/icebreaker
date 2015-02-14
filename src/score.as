@@ -5,18 +5,18 @@ package
 	 * @author Boarnoah
 	 */
 	import net.flashpunk.Entity;
-	public class score 
+	
+	public class score extends Entity
 	{
-		public var score:uint = 0;
+		public var currentScore:uint = 0;
 		
 		public function score() 
 		{
-			
+			name = "score";
 		}
 		
 		public function updateScore(_addToScore:uint):void{
-			score += _addToScore;
+			currentScore += _addToScore;
 		}
 	}
-
 }

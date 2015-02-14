@@ -13,13 +13,13 @@ package
 	public class Main extends Engine 
 	{
 		private var WIDTH:uint = 800;
-		private var HEIGHT:uint = 600;
+		private var HEIGHT:uint = 600;     
 		
 		public function Main() 
 		{
 			super(WIDTH, HEIGHT, 60, false);
 			//TODO: Go to menu first
-			FP.world = new mainMenuWorld;//new gameWorld;
+			FP.world = new mainMenuWorld;//;;new gameWorld
 			//FP.screen.scale = 2;
 		}
 		

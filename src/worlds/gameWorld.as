@@ -18,7 +18,9 @@ package worlds
 			add(new background());
 			add(new player());
 			add(new blockControl());
+			add(new score());
 			add(new block("block"));
+			add(new music());
 		}
 
 	}
