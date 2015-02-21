@@ -17,6 +17,7 @@ package
 		private var speed:uint = 0;
 		private var isDead:Boolean = false;
 		private var enemyType:uint = 0;
+		private var spawnX:int;
 		public var blockSpriteMap:Spritemap;
 		
 		public function block(_name:String) 
@@ -26,10 +27,10 @@ package
 		}
 		
 		public function init(_name:String):void{
-			x =	800 + spr_block_width;
+			x =	(int) ((Math.random() * (800 * 4)) + 800);//800 + spr_block_width;
 			y = 300;
 			
-			speed = 5;
+			speed = 5 * 2;
 			
 			type = _name;
 			loadGfx(SPR_SHEET_BRICK_B0);
@@ -65,7 +66,10 @@ package
 			//TODO check if game is over yet if not spawn
 			blockSpriteMap.play("idle_0");
 			isDead = false;
-			x = (int) ((Math.random() * (800 * 2)) + 800);
+			do{
+				spawnX = (int) ((Math.random() * (800 * 4)) + 800);
+			}while (isPosEmpty(spawnX));
+			x = spawnX;
 			var prevEnemyType:uint = enemyType;
 			enemyType = (uint) ((Math.random() * 2) + 1);
 			trace(enemyType);
@@ -75,6 +79,21 @@ package
 			}
 			collidable = true;
 			trace("Spawned at: " + x);
+		}
+		
+		private function isPosEmpty(_spawnX:int):Boolean{
+			var positionOccupied:Boolean = false;
+			var blockList:Array = [];
+			world.getClass(block, blockList);
+			
+			for each (var e:block in blockList){
+				if((_spawnX <= e.x + spr_block_width + (spr_block_width/2)) && (_spawnX >= e.x - (spr_block_width/2))){
+					positionOccupied = false;
+					return positionOccupied
+				}
+			}
+			
+			return positionOccupied;
 		}
 		
 		public function getEnemyType():uint{

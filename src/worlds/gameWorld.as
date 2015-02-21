@@ -17,8 +17,10 @@ package worlds
 			FP.console.enable();
 			add(new background());
 			add(new player());
-			add(new blockControl());
+			add(new gameControl());
 			add(new score());
+			add(new block("block"));
+			add(new block("block"));
 			add(new block("block"));
 			add(new music());
 		}

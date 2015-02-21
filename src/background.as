@@ -16,7 +16,7 @@ package
 		private var backDrop_0:Backdrop;
 		private var backDrop_1:Backdrop;
 		private var backDrop_2:Backdrop;
-
+		private var speedFactor:int = -2;
 		public function background() 
 		{
 			trace("Setting up backdrop...");
@@ -30,9 +30,9 @@ package
 		
 		override public function update():void {
 			//TODO: Fix to repeat in range, wihtout skipping behaviour, tween maybe?
-			backDrop_0.x -= 1;
-			backDrop_1.x -= 3;
-			backDrop_2.x -= 6;
+			backDrop_0.x += 1 * speedFactor;
+			backDrop_1.x += 3 * speedFactor;
+			backDrop_2.x += 6 * speedFactor;
 		}
 	}
 
