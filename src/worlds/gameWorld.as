@@ -5,6 +5,7 @@ package worlds
 	 * @author Boarnoah
 	 */
 	import block;
+	import hud.gameOverlay;
 	import net.flashpunk.World;
 	import net.flashpunk.FP;
 
@@ -23,6 +24,7 @@ package worlds
 			add(new block("block"));
 			add(new block("block"));
 			add(new music());
+			add(new gameOverlay());
 		}
 
 	}
