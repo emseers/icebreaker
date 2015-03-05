@@ -45,11 +45,17 @@ package hud
 					emButton();
 				else if (mouseInRegion(fpBtn_x, fpBtn_y, fpBtn_width, fpBtn_height))
 					fpButton();
-			}else if (Input.pressed("interact")){
-				startGame();
 			}
 		}
 		
+		// TODO Externalise function to utils class
+		/**
+		 * FUNCTION is also used in gameOverlay
+		 * Returns boolean of whether cursor is within a box
+		 * Parameters: (top left x, top left y, width of box, height of box)
+		 * @return true/false based on cursors location in box
+		 * 
+		 **/
 		private function mouseInRegion(xX:int, yY:int, width:int, height:int):Boolean{
 			var mouseX:int = Input.mouseX;
 			var mouseY:int = Input.mouseY;

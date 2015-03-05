@@ -13,26 +13,28 @@ package
 	import flash.filters.ColorMatrixFilter;
 	import flash.geom.Point;
 	import Array;
-	public class blockControl extends Entity
+	
+	public class gameControl extends Entity
 	{
 		public var blocksPunched:int = 0;
 		//public var test:int = 0;
-		public function blockControl() 
+		public function gameControl() 
 		{
 			trace("Started block control");
 			name = "blockControl";
 		}
 		
+		/*
 		override public function update():void{
-			/*
+			
 			if(test == 0){
 				test = 1;
 				//FP.world.create(block, true);
 				//super.update();
 			}
-			*/
+			
 		}
-		
+		*/
 		public function updateBlocksPunched():void{
 			blocksPunched += 1;
 			
@@ -70,9 +72,24 @@ package
 			
 			return new Image(screenData);//screenshot as Image;
 		}
-		public function destroy():void{
+		
+		/*
+		public function startEnemyDestroy(_enemyObject:block, x:int):void{
 			trace("Destroyed a block");
+			_enemyObject.destroy(x, 5);
+			updateBlocksPunched();
+			world.getInstance("score").updateScore(5);
 		}
+		*/
+		/*
+		public function endEnemyDestroy(_enemyObject:block):void{
+			_enemyObject.recycle();
+		}
+		
+		private function respawnEnemy():void{
+			FP.world.create(block).created();
+		}
+		*/
 		//TODO: dynamically add blocks and move em arround based on difficulty
 		
 	}

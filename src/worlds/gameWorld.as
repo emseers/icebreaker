@@ -23,7 +23,7 @@ package worlds
 			add(new block("block"));
 			add(new block("block"));
 			add(new block("block"));
-			add(new music());
+			add(new music("gameWorld"));
 			add(new gameOverlay());
 		}
 
