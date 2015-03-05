@@ -4,6 +4,7 @@ package hud
 	import net.flashpunk.graphics.Spritemap;
 	import net.flashpunk.Entity;
 	import net.flashpunk.utils.Input;
+	import net.flashpunk.Sfx;
 	/**
 	 * ...
 	 * @author Boarnoah
@@ -43,9 +44,67 @@ package hud
 			soundCtrlSpriteMap.y = soundCtrl_Y;
 			
 			gameOverlayGfxList = new Graphiclist(musicCtrlSpriteMap, soundCtrlSpriteMap);
+			
+			changeVolumeIcon("music", data.musicVolume);
+			changeVolumeIcon("game", data.soundVolume);
+			
 			graphic = gameOverlayGfxList;
 		}
-				
+		
+		override public function update():void{
+			if (Input.mouseReleased) {
+				// Change music volume
+				if(mouseInRegion(musicCtrl_X, musicCtrl_Y, spr_button_width, spr_button_height)){
+					var musicVolume:Number = data.musicVolume;
+					if (musicVolume >= 1)
+						musicVolume = 0;
+					else
+						musicVolume += 0.5;
+					
+					Sfx.setVolume("music", musicVolume);
+					changeVolumeIcon("music", musicVolume);
+					data.musicVolume = musicVolume;
+					
+				// Change game sounds volume
+				}else if(mouseInRegion(soundCtrl_X, soundCtrl_Y, spr_button_width, spr_button_height)){
+					var soundVolume:Number = data.soundVolume;
+					if (soundVolume >= 1)
+						soundVolume = 0;
+					else
+						soundVolume += 0.5;
+					
+					Sfx.setVolume("gamesound", soundVolume);
+					changeVolumeIcon("game", soundVolume);
+					data.soundVolume = soundVolume;
+					
+				}
+			}
+		}
+		
+		private function changeVolumeIcon(soundType:String, volume:Number):void{
+			var spriteFrame:int = 0;
+			switch(volume){
+				case 0:
+					spriteFrame = 2;
+					break;
+				case 0.5:
+					spriteFrame = 1;
+					break;
+				case 1:
+					spriteFrame = 0;
+					break;
+				default:
+					spriteFrame = 2;
+					break;
+			}
+			
+			if(soundType == "music"){
+				musicCtrlSpriteMap.frame = spriteFrame;
+			}else if(soundType == "game"){
+				soundCtrlSpriteMap.frame = spriteFrame;
+			}
+		}
+		
 		// TODO Externalise function to utils class
 		/**
 		 * FUNCTION is also used in gameOverlay

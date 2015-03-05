@@ -6,8 +6,8 @@ package
 	 */
 	public class data 
 	{
-		public static var musicVolume:int = 2;
-		public static var soundVolume:int = 2;	
+		public static var musicVolume:Number = 1;
+		public static var soundVolume:Number = 1;	
 	}
 
 }
