@@ -14,6 +14,8 @@ package
 		
 		private var spr_block_height:uint = 128;
 		private var spr_block_width:uint = 32;
+		private var num_skins:int = 2;
+		
 		private var speed:uint = 0;
 		private var isDead:Boolean = false;
 		private var enemyType:uint = 0;
@@ -71,7 +73,7 @@ package
 			}while (isPosEmpty(spawnX));
 			x = spawnX;
 			var prevEnemyType:uint = enemyType;
-			enemyType = (uint) ((Math.random() * 2) + 1);
+			enemyType = (uint) ((Math.random() * num_skins) + 1);
 			trace(enemyType);
 			if (prevEnemyType != enemyType) {
 				trace("Changed enemy type...");
