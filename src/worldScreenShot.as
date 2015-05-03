@@ -16,6 +16,7 @@ package
 		}
 		
 		public function init(_screenshot:Image):void{
+			layer = 1;
 			graphic = _screenshot;
 		}
 		

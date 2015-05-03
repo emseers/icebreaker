@@ -48,6 +48,7 @@ package hud
 			changeVolumeIcon("music", data.musicVolume);
 			changeVolumeIcon("game", data.soundVolume);
 			
+			layer = 0;
 			graphic = gameOverlayGfxList;
 		}
 		

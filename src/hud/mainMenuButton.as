@@ -44,6 +44,7 @@ package hud
 			graphic = new Image(SPR_MAIN_BUTTON_OVERLAY);
 			x = 400 - (SPR_MAIN_BUTTON_OVERLAY_width/2);
 			y = 450 - (SPR_MAIN_BUTTON_OVERLAY_height / 2);
+			layer = 0;
 			Input.define("interact", Key.SPACE);
 			setHitboxTo(graphic);
 		}

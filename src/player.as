@@ -62,6 +62,7 @@ package
 			init();
 			x = (WIDTH/4) - (spr_player_width*2);
 			y = 300;
+			layer = 1;
 			trace("Loading player gfx...");
 
 		}

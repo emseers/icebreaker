@@ -31,7 +31,7 @@ package
 		public function init(_name:String):void{
 			x =	(int) ((Math.random() * (800 * 4)) + 800);//800 + spr_block_width;
 			y = 300;
-			
+			layer = 1;
 			speed = 5 * 2;
 			
 			type = _name;

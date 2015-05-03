@@ -84,6 +84,7 @@ package hud
 		}
 		
 		private function init():void{
+			layer = 0;
 			graphic = new Image(SPR_MAIN_MENU_OVERLAY);
 			//graphic = new Image(SPR_RESTART_MENU_OVERLAY);
 			Input.define("interact", Key.SPACE);
